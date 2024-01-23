@@ -1,6 +1,8 @@
 name: Build 'deployctl-cli'
 
 on:
+  schedule:
+    - cron: '0 0 * * *' # every day at midnight
   push:
     branches:
       - main
@@ -50,6 +52,7 @@ jobs:
             type=ref,event=pr
             type=sha,format=long
             type=raw,value=latest,enable=${{ github.ref == format('refs/heads/{0}', 'main') }}
+            type=raw,value=nightly,enable=${{ github.event.schedule == '0 0 * * *' }}
 
       - name: build and push
         uses: docker/build-push-action@v5
