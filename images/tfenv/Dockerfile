@@ -8,7 +8,7 @@ RUN apt-get update \
   git \
   unzip \
   curl \
-  && rm -rf /var/cache/apt/archives/*
+  && rm -rf /var/cache/apt/archives
 
 RUN git clone --depth=1 https://github.com/tfutils/tfenv.git ~/.tfenv
 RUN echo 'export PATH="$HOME/.tfenv/bin:$PATH"' >> ~/.bashrc
