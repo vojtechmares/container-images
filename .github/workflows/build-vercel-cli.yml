@@ -4,8 +4,6 @@ on:
   push:
     branches:
       - main
-    tags:
-      - vercel-cli-*
     paths:
       - 'images/vercel-cli/**'
       - '.github/workflows/build-vercel-cli.yml'
@@ -52,9 +50,6 @@ jobs:
             type=ref,event=pr
             type=sha,format=long
             type=raw,value=latest,enable=${{ github.ref == format('refs/heads/{0}', 'main') }}
-            # tag format: vercel-cli-2024-01-23
-            type=raw,value=latest,enable=${{ github.ref == format('refs/heads/{0}', 'main') }}
-            type=semver,pattern={{raw}},enable=${{ github.ref_type == 'tag' }}
 
       - name: build and push
         uses: docker/build-push-action@v5
