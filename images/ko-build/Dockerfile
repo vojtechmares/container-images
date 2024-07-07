@@ -1,4 +1,4 @@
-FROM alpine:3.19 AS ko
+FROM alpine:3.20 AS ko
 
 COPY --from=golang:1.22-alpine3.19 /usr/local/go /usr/local/go
 ENV PATH=$PATH:/usr/local/go/bin
