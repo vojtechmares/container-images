@@ -55,7 +55,7 @@ jobs:
             type=raw,value=nightly,enable=${{ github.event.schedule == '0 0 * * *' }}
 
       - name: build and push
-        uses: docker/build-push-action@v5
+        uses: docker/build-push-action@v6
         with:
           context: .
           file: ./images/release-tools/Dockerfile
