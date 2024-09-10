@@ -4,6 +4,6 @@ RUN apk add --no-cache \
     bash \
     ca-certificates
 
-RUN deno install -Arf jsr:@deno/deployctl
+RUN deno install --global -Arf jsr:@deno/deployctl
 
 ENTRYPOINT ["bash"]
